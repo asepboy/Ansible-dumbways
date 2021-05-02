@@ -1,0 +1,19 @@
+- hosts: fe1:fe2
+  tasks:
+          - name: build docker frontend
+            command: "chdir=/home/{{ansible_user}}/waysgallery-frontend docker build -t asep58/waysgallery-frontend:1.1 ."
+            become_user: "{{ansible_user}}"
+
+          - name: run waysgallery-frontend
+            command: "chdir=/home/{{ansible_user}}/waysgallery-frontend docker-compose up -d"
+            become_user: "{{ansible_user}}"
+
+- hosts: be1:be2
+  tasks:
+          - name: build docker backend
+            command: "chdir=/home/{{ansible_user}}/waysgallery-backend docker build -t asep58/waysgallery-backend:1.1 ."               
+            become_user: "{{ansible_user}}"
+
+          - name: run waysgallery-backend
+            command: "chdir=/home/{{ansible_user}}/waysgallery-backend docker-compose up -d"
+            become_user: "{{ansible_user}}"

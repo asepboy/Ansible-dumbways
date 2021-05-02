@@ -1,0 +1,24 @@
+[user]
+nginx ansible_host=10.0.0.134 ansible_user=public ansible_password='public'
+fe1 ansible_host=10.0.1.220 ansible_user=frontend01 ansible_password='public'
+fe2 ansible_host=10.0.1.166 ansible_user=frontend02 ansible_password='public'
+be1 ansible_host=10.0.1.125 ansible_user=backend01 ansible_password='public'
+be2 ansible_host=10.0.1.182 ansible_user=backend02 ansible_password='public'
+db1 ansible_host=10.0.1.170 ansible_user=database01 ansible_password='public'
+db2 ansible_host=10.0.1.86 ansible_user=database02 ansible_password='public'
+cicd ansible_host=10.0.1.64 ansible_user=cicd ansible_password='public'
+mn ansible_host=10.0.1.90 ansible_user=monitoring ansible_password='public'
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
+
+[hostname]
+nginx new_hostname=nginx
+fe1 new_hostname=fe1
+fe2 new_hostname=fe2
+be1 new_hostname=be1
+be2 new_hostname=be2
+db1 new_hostname=db1
+db2 new_hostname=db2
+cicd new_hostname=cicd
+mn new_hostname=monitoring

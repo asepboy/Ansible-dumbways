@@ -1,0 +1,5 @@
+- hosts: cicd
+  tasks:
+          - name: build docker jenkins
+            command: "chdir=/home/{{ansible_user}} docker-compose up -d"
+            become_user: "{{ansible_user}}"
